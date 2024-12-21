@@ -1,0 +1,16 @@
+li{
+    list-style: none;
+    width: auto;
+}
+.champions{
+    margin-top: 5%;
+    grid: auto-flow/ 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: .5em;
+    display: grid;
+    justify-items: center;
+}
+p{
+    color: white;
+    text-align: center;
+    font-weight: 600;
+}

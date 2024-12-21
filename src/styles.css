@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --bg: hsl(218, 33%, 18%);
+    --card-size: 260px;
+  }
+body{
+    font-family: "Montserrat", sans-serif;
+    min-height: 98vh;
+    display: grid;
+    place-items: center;
+    overflow-x: hidden;
+    align-content: space-between;
+    background-color: #0E1015;
+    outline: 0;
+}
+app-root{
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #333;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}

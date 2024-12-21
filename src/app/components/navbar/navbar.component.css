@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Comforter&family=Gasoek+One&family=Oi&family=Sigmar&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Belanosima&family=Rubik+Vinyl&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
+.spectacledcoder-navbar
+{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    z-index: 100;
+    backdrop-filter: blur(20px);
+}
+.spectacledcoder-navbar .brand h1
+{
+    font-family: "Comforter", cursive;
+    margin: auto;
+    color: rgb(255, 255, 255);
+}
+.spectacledcoder-navbar ul
+{
+    width: 50%;
+    height: 100%;
+    margin: auto;
+    margin-left: 0px;
+    display: flex;
+
+
+}
+.spectacledcoder-navbar ul li
+{
+    margin: auto;
+    margin-left: 0px;
+    list-style: none;
+    font-weight: 400;
+}
+.rect
+{
+    margin: auto;
+    margin-left: 0px;
+    width: 0%;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+}
+.spectacledcoder-navbar ul li:hover .rect
+{
+    width: 100%;
+    transition: all 0.5s;
+}
+.spectacledcoder-navbar ul li a
+{
+    font-family: "Poppins", sans-serif;
+    font-size: smaller;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.spectacledcoder-navbar .navbar-toggler
+{
+    margin: auto;
+    width: 50px;
+    height: 40%;
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 0.5s;
+    margin-right: 20px;
+
+}
+.spectacledcoder-navbar .navbar-toggler .line1, .spectacledcoder-navbar .navbar-toggler .line2
+{
+    margin: auto;
+    width: 20px;
+    height: 1px;
+    background-color: rgb(255, 255, 255);
+
+}
+.overlay-dropdown
+{
+    display: none;
+}
+.overlay-dropdown ul li
+{
+    display: none;
+}
+
+
+#intro-div, #about-div, #services-div, #careers-div, #contact-div
+{
+    margin: auto;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+#intro-div h2, #about-div h2, #services-div h2, #careers-div h2, #contact-div h2
+{
+    margin: auto;
+    font-size: 7vw;
+    color: rgb(255, 255, 255);
+}
+
+
+@media only screen and (max-width: 1000px)
+{
+    .spectacledcoder-navbar ul
+    {
+        display: none;
+    }
+    .spectacledcoder-navbar .navbar-toggler
+    {
+        display: flex;
+    }
+    .overlay-dropdown
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: none;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+}
+.overlay-dropdown .brand h1
+{
+    font-family: "Comforter", cursive;
+    margin: auto;
+}
+.overlay-dropdown ul
+{
+    width: 50%;
+    height: 60%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    margin-left: -16px;
+    margin-top: 20px;
+}
+.overlay-dropdown ul li
+{
+    display: flex;
+    list-style-type: none;
+    margin-left: 20px;
+
+}
+.overlay-dropdown ul li a
+{
+    text-decoration: none;
+    color: black;
+    font-size: 50px;
+}
+}
+
+.disclaimer
+{ 
+    margin: auto; 
+    margin-bottom: 20px;
+    width: fit-content;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-family: 'Belanosima', sans-serif;
+}
+.disclaimer a
+{
+    text-decoration: none;
+    color: #ffffff;
+    font-family: "Kaushan Script", cursive;
+    font-weight: 900;
+}
+.disclaimer a:hover
+{
+    text-decoration: overline;
+}

@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display&display=swap");
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+@layer base, cards;
+
+main h1 {
+  margin-top: 10%;
+  text-align: center;
+  color: white;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 5em;
+  flex-direction: row;
+}
+
+@layer base {
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+  }
+
+  .ric-link {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@layer cards {
+  .card {
+    color: canvas;
+    background: #1c1f2b;
+    width: var(--card-size);
+    aspect-ratio: 3 / 4;
+    position: relative;
+    padding: 10px 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+
+    transition: transform 150ms linear;
+  }
+
+  .image-container {
+    position: relative;
+    display: inline-block;
+  }
+
+  .image-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    transition: filter 300ms ease, transform 300ms ease;
+  }
+
+  .card h1,
+  .card .image-container {
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+
+    transform: translateZ(0); /* Activte GPU rendering */
+    transition: transform 300ms ease, filter 300ms ease;
+    position: relative;
+  }
+
+  .card .img-wrapper {
+    image-rendering: -webkit-optimize-contrast; /* Optimized for WebKit browsers */
+    image-rendering: crisp-edges; /* Better borders */
+
+    will-change: transform;
+  }
+
+  .card .img-wrapper svg {
+    width: 150px;
+    height: 150px;
+  }
+
+  .card h1 {
+    position: relative;
+    font-size: 1.54rem;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .card h1::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    filter: blur(15px);
+    z-index: -1;
+  }
+
+  .card::after,
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: -6px;
+
+    z-index: -1;
+    border-radius: 14px;
+
+    transform: translateZ(-1px);
+
+    animation: spin 4s linear infinite;
+  }
+
+  .card::after {
+    filter: blur(1.5rem);
+  }
+
+  .card-3::after,
+  .card-3::before {
+    background-image: conic-gradient(
+      from var(--angle),
+      #ff6fd8,
+      blue,
+      red,
+      yellow,
+      purple,
+      #ff6fd8
+    );
+    margin: -2px;
+    border-radius: 12px;
+  }
+
+  @keyframes spin {
+    from {
+      --angle: 0deg;
+    }
+    to {
+      --angle: 360deg;
+    }
+  }
+}

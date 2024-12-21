@@ -1,0 +1,10 @@
+<div class="champions">
+    <div *ngFor="let champion of champion_names let i = index" >
+        <div class="item">
+          <img [src]="url + champion_ids[i] + '.png'" alt="" />
+          <p>{{ champion }}</p>
+        </div>
+      </div>
+      
+      
+</div>
