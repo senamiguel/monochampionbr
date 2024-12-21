@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 :root {
-    --bg: hsl(218, 33%, 18%);
+    --bg: #0E1015;
     --card-size: 260px;
   }
 body{
-    font-family: "Montserrat", sans-serif;
+    font-family: "Inter", sans-serif;
     min-height: 98vh;
     display: grid;
     place-items: center;
@@ -11,6 +12,10 @@ body{
     align-content: space-between;
     background-color: #0E1015;
     outline: 0;
+}
+a{
+    text-decoration: none;
+    color: white;
 }
 app-root{
   width: 100%;
