@@ -5,7 +5,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ArrayService } from '../../services/array.service';
 import { ProfileComponent } from '../profile/profile.component';
 import { CommentComponent } from '../profile/comment/comment.component';
-
+ 
 @Component({
   selector: 'app-create-profile',
   imports: [NgIf, NgFor, ProfileComponent, CommentComponent],
@@ -13,87 +13,89 @@ import { CommentComponent } from '../profile/comment/comment.component';
   styleUrl: './create-profile.component.css',
 })
 export class CreateProfileComponent {
-  form: FormGroup;
-  page: number = 1;
-  bio: string = '';
-  nick: string = '';
-  icon: string = '';
-  selectedIndex: number = 0;
-  selectedChampion: string = '';
+  profileForm: FormGroup;
+  currentPage: number = 1;
+  bioText: string = '';
+  username: string = '';
   selectedIconURL: string = '';
-  champion_names: string[];
-  champion_icons: Map<string, string[]>;
-
-  onSubmit() {}
+  selectediconIndex: number = 0;
+  iconBaseURL: string = 'https://ddragon-webp.lolmath.net/latest/img/profileicon/';
+  selectedChampionIndex: number = 0;
+  selectedChampionName: string = '';
+  availableChampionNames: string[];
+  championIconMap: Map<string, string[]>;
+ 
   constructor(
-    private fb: FormBuilder,
+    private formBuilder: FormBuilder,
     @Inject(ArrayService) private arrayService: ArrayService
   ) {
-    this.form = this.fb.group({
+ 
+    this.profileForm = this.formBuilder.group({
       champions: [''],
     });
-    this.champion_names = this.arrayService.champion_names;
-    this.champion_icons = this.arrayService.champion_icons;
+ 
+    this.availableChampionNames = this.arrayService.champion_names;
+    this.championIconMap = this.arrayService.champion_icons;
   }
-
-  get champions() {
-    return this.form.get('champions');
+ 
+  get championsControl() {
+    return this.profileForm.get('champions');
   }
-  saveProfileDetail(value: string, type: 'bio' | 'nick'): void {
-    if (type === 'bio') {
-      this.bio = value;
-    } else if (type === 'nick') {
-      this.nick = value;
+ 
+  saveProfileDetails(value: string, fieldType: 'bio' | 'username'): void {
+    if (fieldType === 'bio') {
+      this.bioText = value;
+    } else if (fieldType === 'username') {
+      this.username = value;
     }
   }
-  onChampionChange(event: Event): void {
+ 
+  onChampionSelect(event: Event): void {
     const selectElement = event.target as HTMLSelectElement;
     const selectedChampion = selectElement.value;
     const selectedIndex = selectElement.selectedIndex;
-    this.selectedIndex = selectedIndex;
-
-    const baseUrl = 'https://ddragon-webp.lolmath.net/latest/img/profileicon/';
-    const championIcons = this.champion_icons.get(selectedChampion);
-
+    this.selectedChampionIndex = selectedIndex;
+ 
+    const championIcons = this.championIconMap.get(selectedChampion);
+ 
     if (championIcons && selectedIndex >= 0) {
-      this.selectedIconURL = `${baseUrl}${championIcons[selectedIndex]}.webp`;
-      this.selectedChampion = selectedChampion;
+      this.selectedChampionName = selectedChampion;
     } else {
       this.selectedIconURL = '';
     }
   }
-  generateIconURL(champion: string, iconIndex: number): string {
-    const baseUrl = 'https://ddragon-webp.lolmath.net/latest/img/profileicon/';
-    const championIcons = this.champion_icons.get(champion);
-
+ 
+  generateIconURLForChampion(championName: string, iconIndex: number): string {
+    const championIcons = this.championIconMap.get(championName);
+ 
     if (championIcons && iconIndex >= 0 && iconIndex < championIcons.length) {
-      this.icon = `${baseUrl}${championIcons[iconIndex]}.webp`;
-      return `${baseUrl}${championIcons[iconIndex]}.webp`;
+      return `${this.iconBaseURL}${championIcons[iconIndex]}.webp`;
     }
-
     return '';
   }
-  autoResize($event: any): void {
-    $event.target.style = 'height: auto';
-    $event.target.style = 'height:' + $event.target.scrollHeight + 'px';
+ 
+  autoResizeTextarea(event: any): void {
+    event.target.style.height = 'auto';
+    event.target.style.height = `${event.target.scrollHeight}px`;
   }
-  switchPage(): void {
-    if (this.page == 1) {
-      this.page = 2;
-    } else {
-      this.page = 1;
-    }
+ 
+  togglePage(): void {
+    this.currentPage = this.currentPage === 1 ? 2 : 1;
   }
-  selectIcon(index: number): void {
+ 
+  toggleIconSelection(iconIndex: number): void {
     const icons = document.querySelectorAll('[id^="icon"]');
-    icons.forEach((icon, i) => {
-      if (i !== index) {
+    const championIcons = this.championIconMap.get(this.selectedChampionName);
+ 
+    icons.forEach((icon, index) => {
+      if (index !== iconIndex) {
         icon.classList.remove('selected');
       }
     });
-    let icon = document.getElementById('icon' + index);
-    if (!icon?.classList.contains('selected')) {
-      icon?.classList.add('selected');
+    const selectedIcon = document.getElementById(`icon${iconIndex}`);
+    if (selectedIcon && !selectedIcon.classList.contains('selected')) {
+      selectedIcon.classList.add('selected');
+      this.selectedIconURL = `${this.iconBaseURL + championIcons![iconIndex]}.webp`;
     }
   }
 }
