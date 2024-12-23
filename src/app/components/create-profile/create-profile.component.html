@@ -1,9 +1,9 @@
-<form>
-  <div *ngIf="currentPage == 1; else form2Template" class="space">
+<form [ngSwitch]="currentPage">
+  <div *ngSwitchCase="1" class="space">
     <div class="form-item">
       <label for="username">Nome de Usuário:</label>
-      <input placeholder="Ex:.. Berg" id="username" [maxLength]="16" formControlName="nick" type="text" autocomplete="off"
-        (blur)="saveProfileDetails(username.value, 'username')" #username />
+      <input placeholder="Ex:.. Berg" id="username" [maxLength]="16" formControlName="nick" type="text"
+        autocomplete="off" (blur)="saveProfileDetails(username.value, 'username')" #username />
     </div>
     <div class="form-item">
       <label for="champions">Campeão:</label>
@@ -38,9 +38,9 @@
         </div>
       </div>
     </div>
-    <div class="button" (click)="togglePage()">Próximo</div>
+    <div class="button btn-next" (click)="togglePage(2)">Próximo</div>
   </div>
-  <ng-template #form2Template>
+  <div *ngSwitchCase="2">
     <div class="">
       <div class="form-item">
         <h1 style="color: white">Seu perfil ficará assim</h1>
@@ -49,5 +49,20 @@
         </app-profile>
       </div>
     </div>
-  </ng-template>
+    <div class="form-actions">
+      <div class="button btn-back" (click)="togglePage(1)"><span>Voltar</span></div>
+      <div class="button btn-next" (click)="togglePage(3)"><span>Próximo</span></div>
+    </div>
+  </div>
+  <div *ngSwitchCase="3" class="login-riot">
+    <h1>Só mais uma coisinha...</h1>
+    <p>Faça login com a sua conta riot para mostar a sua conta aos outros usuários</p>
+    <p>Exemplo:</p>
+    <app-accounts></app-accounts>
+    <button class="riot"> <span class="riot-text">Logar com o Riot ID</span></button>
+    <div class="form-actions">
+      <div class="back-riot" (click)="togglePage(2)"><span>Voltar</span></div>
+    </div>
+  </div>
+
 </form>

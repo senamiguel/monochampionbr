@@ -1,20 +1,20 @@
-import { NgIf } from '@angular/common';
+import { NgIf,NgFor,NgSwitch, NgSwitchCase} from '@angular/common';
 import { Component, Inject } from '@angular/core';
-import { NgFor } from '@angular/common';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ArrayService } from '../../services/array.service';
 import { ProfileComponent } from '../profile/profile.component';
 import { CommentComponent } from '../profile/comment/comment.component';
+import { AccountsComponent } from "../profile/accounts/accounts.component";
  
 @Component({
   selector: 'app-create-profile',
-  imports: [NgIf, NgFor, ProfileComponent, CommentComponent],
+  imports: [NgIf, NgSwitch, NgSwitchCase, NgFor, ProfileComponent, CommentComponent, AccountsComponent],
   templateUrl: './create-profile.component.html',
   styleUrl: './create-profile.component.css',
 })
 export class CreateProfileComponent {
   profileForm: FormGroup;
-  currentPage: number = 1;
+  currentPage: number = 3;
   bioText: string = '';
   username: string = '';
   selectedIconURL: string = '';
@@ -79,8 +79,8 @@ export class CreateProfileComponent {
     event.target.style.height = `${event.target.scrollHeight}px`;
   }
  
-  togglePage(): void {
-    this.currentPage = this.currentPage === 1 ? 2 : 1;
+  togglePage(page:number): void {
+    this.currentPage = page;
   }
  
   toggleIconSelection(iconIndex: number): void {

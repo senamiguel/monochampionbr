@@ -94,7 +94,7 @@ select {
   background-color: #1d252c;
   border-radius: 15px;
   line-height: 130%;
-  padding: 5px 0px 10px 3%;
+  padding: 5px 1% 10px 2%;
   width: 97%;
   resize: vertical;
   text-align: left;
@@ -104,19 +104,42 @@ select {
 }
  
 #bioText::placeholder {
-  line-height: 105%;
+  line-height: 120%;
+  position: absolute;
+  left: -1%;
+  top: -8%;
 }
  
 .button {
-  background-color: #c49c57;
   border: none;
-  color: #ffffff;
-  padding: 1%;
   margin-top: 1em;
   border-radius: 10px;
   cursor: pointer;
 }
- 
+.btn-next{
+  color: #ffffff;
+  padding: .5% 2%;
+  background-color: #c49c57;
+  transition: 0.3s;
+}
+.btn-next:hover{
+  background-color: #caa279;
+  transition: 0.3s;
+}
+.btn-back{
+  color: #ffffff;
+  padding: .5% 2%;
+  background-color: #1d252c;
+  transition: 0.3s;
+}
+.btn-back:hover{
+  transition: 0.3s;
+  background-color: #2d3a45;
+}
+.form-actions{
+  display: flex;
+  gap: .5em;
+}
 .image-icon {
   cursor: pointer;
 }
@@ -128,4 +151,55 @@ select {
 .selected {
   outline: 2px solid #c49c57;
   box-shadow: 0 0 15px #c49c57;
+}
+
+.login-riot{
+  color: white;
+}
+.back-riot{
+  width: 100%;
+  background-color: #1d252c;
+  border:none;
+  height: 40px;
+  margin-top: 10px;
+  text-align: center;
+  border-radius: 7px;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: inherit;
+  font-weight: 500;
+  transition: 0.3s;
+}
+.back-riot:hover{
+  transition: 0.3s;
+  background-color: #2d3a45;
+}
+.riot{
+  margin-top: 30px;
+  width: 100%;
+  background-color: #D53435;
+  border:none;
+  height: 40px;
+  border-radius: 7px;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: inherit;
+  font-weight: 500;
+  transition: 0.3s;
+}
+.riot:hover{
+  transition: 0.3s;
+  background-color: #F53C3D;
+  
+}
+.riot-text::before {
+  content:"";
+  width: 15px;
+  height: 15px;
+  filter: invert();
+  transform: translateY(2px);
+  margin-right: .5em;
+  display: inline-block;
+  background-image: url('https://www.svgrepo.com/show/306668/riotgames.svg');
+  background-size: 15px;
 }

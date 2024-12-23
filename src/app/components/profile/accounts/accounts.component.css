@@ -1,0 +1,26 @@
+.accounts {
+    grid-area: accounts;
+}
+
+.accounts__container {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+}
+
+.account {
+    border: 1px solid #333333;
+    display: flex;
+    min-height: 300px;
+    width: 30%;
+    min-width: 240px;
+    background-color: #11141a;
+    flex-direction: column;
+    border-radius: 15px;
+    padding: 10px;
+    align-items: center;
+}
+
+.icon {
+    border-radius: 50%;
+}

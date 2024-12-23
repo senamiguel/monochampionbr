@@ -1,0 +1,32 @@
+.report {
+    grid-area: report;
+    display: flex;
+    border: 1px solid rgb(52 77 101);
+    -webkit-border-radius: 030px;
+    -moz-border-radius: 030px;
+    border-radius: 020px;
+    justify-content: space-between;
+    padding: 0 5%;
+}
+
+.btn {
+    align-self: center;
+}
+
+.report button {
+    text-align: center;
+    background-color: #ff112d;
+}
+
+.report h1 {
+    font-size: 1.5em;
+    margin: 0;
+    padding: 15px 0 0 0;
+}
+
+.report p {
+    font-size: 0.8em;
+    color: rgb(147 173 200);
+    margin-top: 0;
+    padding: 3px 0 5px 0;
+}
