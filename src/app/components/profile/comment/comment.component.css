@@ -1,0 +1,66 @@
+button {
+  background-color: #333333;
+  border: none;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.comments {
+  grid-area: comments;
+  display: flex;
+  gap: 1em;
+  flex-direction: column;
+}
+:host {
+  display: block;
+  color: #ffffff;
+}
+.comment {
+  border: 1px solid #333333;
+  display: flex;
+  background-color: #11141a;
+  flex-direction: column;
+  border-radius: 15px;
+  padding: 10px;
+}
+.identification {
+  display: flex;
+  gap: 1em;
+}
+.icon {
+  border-radius: 50%;
+}
+.add-comment textarea {
+  background: none;
+  border: none;
+  color: #c9d1d9;
+  font-size: 14px;
+  background-color: #1d252c;
+  border-radius: 15px;
+  padding: 10px 16px;
+  width: 97%;
+  resize: vertical;
+  min-height: 20px;
+  overflow: hidden;
+  font-family: inherit;
+}
+.add-comment textarea:focus {
+  outline: none;
+}
+.char-count {
+  color: rgb(147 173 200);
+}
+.comment_enviar {
+  width: 75px;
+  margin-top: 10px;
+  background-color: #c49c57;
+  align-self: end;
+  margin-bottom: 5px;
+}
+.comment_report {
+  color: #ffffff;
+  align-self: end;
+  font-weight: 300;
+}

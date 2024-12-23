@@ -1,0 +1,32 @@
+<div class="comments">
+  <h1>Comentários</h1>
+  <div class="add-comment">
+    <textarea
+      #comentar
+      name="comentar"
+      id="comentar"
+      type="text"
+      placeholder="Add a comment..."
+      [maxLength]="250"
+      rows="1"
+      (input)="autoResize($event)"
+    ></textarea>
+    <div class="char-count">
+      <span>{{ 250 - comentar.textLength }} caracteres restantes</span>
+    </div>
+    <button class="comment_enviar">Enviar</button>
+  </div>
+  <div class="comment">
+    <div class="identification">
+      <img
+        class="icon"
+        src="https://preview.redd.it/i-animated-the-best-janna-icon-v0-i870v2fdmhkc1.gif?width=594&auto=webp&s=82f7434959c39937d5305e8328a2760597ce7cc8"
+        [width]="50"
+        alt=""
+      />
+      <p><strong>Cavaloko</strong> - 3 dias atrás</p>
+    </div>
+    <p class="actions__message">Joga muito, mano!</p>
+    <span class="comment_report">Reportar ⚠︎</span>
+  </div>
+</div>

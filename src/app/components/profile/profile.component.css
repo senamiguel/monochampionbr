@@ -4,15 +4,20 @@
   display: grid;
   grid-template-areas:
     "profile      actions"
-    "report       report"
     "about-me     about-me"
     "accounts     accounts"
-    "social-media social-media"
     "comments     comments";
   grid-column-gap: 15em;
-  grid-row-gap: 3em;
   justify-content: center;
   padding: 20px;
+}
+
+.app-comment{
+  grid-area: comments;
+}
+
+.profile__theme{
+  background-color: black;
 }
 
 .profile {
@@ -30,6 +35,9 @@
   gap: 2em;
   gap: 0.5em;
   justify-content: center;
+}
+.nick{
+  min-width: 260px;
 }
 .icons img {
   border-radius: 50%;
@@ -75,15 +83,9 @@
 }
 
 .about-me {
+  min-height: 300px;
   grid-area: about-me;
   word-break: break-all;
-}
-
-.comments {
-  grid-area: comments;
-  display: flex;
-  gap: 1em;
-  flex-direction: column;
 }
 
 :host {
@@ -136,19 +138,8 @@ button:hover {
   margin-bottom: 10px;
 }
 
-.comment {
-  border: 1px solid #333333;
-  display: flex;
-  background-color: #11141a;
-  flex-direction: column;
-  border-radius: 15px;
-  padding: 10px;
-}
 
-.identification {
-  display: flex;
-  gap: 1em;
-}
+
 .actions__message {
   line-break: anywhere;
   padding-left: 65px;
@@ -176,38 +167,6 @@ button:hover {
 .icon {
   border-radius: 50%;
 }
-.add-comment{
-  display: flex;;
-  flex-direction: column;
-}
-.add-comment textarea {
-  background: none;
-  border: none;
-  color: #c9d1d9;
-  font-size: 14px;
-  background-color: #1d252c;
-  border-radius: 15px;
-  padding: 10px 16px;
-  width: 97%;
-  resize: vertical;
-  height: 20px;
-  overflow: hidden;
-  font-family: inherit;
-}
-.add-comment textarea:focus {
-  outline: none;
-}
 .char-count {
   color: rgb(147 173 200);
-}
-.comment_enviar{
-  width: 75px;
-  margin-top: 10px;
-  background-color: #c49c57;
-  align-self: end;
-}
-.comment_report{
-  color: #ffffff;
-  align-self: end;
-  font-weight: 300;
 }

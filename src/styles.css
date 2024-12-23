@@ -3,6 +3,9 @@
     --bg: #0E1015;
     --card-size: 260px;
   }
+  *:focus {
+    outline: none;
+  } 
 body{
     font-family: "Inter", sans-serif;
     min-height: 98vh;

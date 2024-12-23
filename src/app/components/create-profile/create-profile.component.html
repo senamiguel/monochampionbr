@@ -1,0 +1,85 @@
+<form>
+  <div *ngIf="page == 1; else form2Template" class="space">
+    <div class="form-item">
+      <label for="nick">Nick:</label>
+      <input
+        placeholder="Ex:.. Berg"
+        id="nick" [maxLength]="16"
+        formControlName="nick"
+        type="text"
+        autocomplete="off"
+        (blur)="saveProfileDetail(nick.value, 'nick')"
+        #nick
+      />
+    </div>
+    <div class="form-item">
+      <label for="champions">Campeão:</label>
+      <select formControlName="champions" (change)="onChampionChange($event)">
+        <option value="">{{ "Escolha seu campeão" }}</option>
+        <option
+          *ngFor="let champion of champion_names; let i = index"
+          [value]="champion"
+        >
+          {{ champion }}
+        </option>
+      </select>
+    </div>
+    <div *ngIf="selectedIndex != 0" class="icons">
+      <div class="item">
+        <img
+          (click)="selectIcon(i)"
+          id="icon{{ i }}"
+          draggable="false"
+          class="image-icon"
+          *ngFor="
+            let icon of champion_icons.get(selectedChampion) || [];
+            let i = index
+          "
+          [src]="generateIconURL(selectedChampion, i)"
+          alt="Icon {{ i + 1 }}"
+          width="100%"
+        />
+      </div>
+    </div>
+    <div class="form-item">
+      <label for="about-me">Sobre mim:</label>
+      <div>
+        <textarea
+          #comentar
+          name="about-me"
+          id="about-me"
+          type="text"
+          placeholder='
+      Oi! Eu sou "Arthur Lanches", moro no interior de
+      São Paulo, tenho 24 anos e nasci no dia 13.11.2000.
+      AH, e eu não tenho uma lanchonete e sim uma WEBLANCHONETE.
+      Lol status: jogando desde a season 2, s8 challenger - s9 challenger'
+          [maxLength]="600"
+          rows="1"
+          (input)="autoResize($event)"
+          (blur)="saveProfileDetail(comentar.value, 'bio')"
+        ></textarea>
+        <div class="char-count">
+          <span style="color: white"
+            >{{ 600 - comentar.textLength }} caracteres restantes</span
+          >
+        </div>
+      </div>
+    </div>
+    <div class="button" (click)="switchPage()">Próximo</div>
+  </div>
+  <ng-template #form2Template>
+    <div class="">
+      <div class="form-item">
+        <h1 style="color: white">Seu perfil ficará assim</h1>
+        <app-profile
+          [bio]="bio"
+          [nick]="nick"
+          [icon]="icon"
+          [campeao]="selectedChampion"
+        ></app-profile>
+        <app-comment class="comments"></app-comment>
+      </div>
+    </div>
+  </ng-template>
+</form>

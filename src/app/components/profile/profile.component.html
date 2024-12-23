@@ -2,7 +2,10 @@
   <div class="profile">
     <div class="person">
       <img
-        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKBiENwvbLOBZ1o6nxicZd0HODTrEwYQGPbDleLR9jlXyQHA03f_VcLDN8uIwoFktpvlMRkng3ujX1c0jee5s7XT8ATdpRZ1YAgKYkqGqnvbh9GNML580b8r5RqIDw3sQ_TUel0Yz89-cj/s200/3505.jpg"
+        src="{{
+          icon ||
+            'https://raw.communitydragon.org/latest/game/assets/ux/summonericons/profileicon29.png'
+        }}"
         [width]="150"
         alt="Profile Picture"
         style="border-radius: 50%"
@@ -34,9 +37,10 @@
         </div>
       </div>
     </div>
+    <div class="div"></div>
     <div class="text">
-      <h2>Nwrr</h2>
-      <p>Mono Darius</p>
+      <h2 class="nick" >{{ nick }}</h2>
+      <p>Mono {{ campeao }}</p>
       <p>Peak Grão Mestre 500PDL</p>
     </div>
   </div>
@@ -46,119 +50,10 @@
     <button id="actions__seguir">Seguir</button>
   </div>
 
-  <div class="report">
-    <div class="text">
-      <h1>Viu algo de errado?</h1>
-      <p>Não se esqueça de reportar!</p>
-    </div>
-    <div class="btn">
-      <button>Reportar</button>
-    </div>
-  </div>
-
   <div class="about-me">
     <h1>Sobre mim</h1>
     <p>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum fugiat
-      modi facere, dolorum ipsa a commodi consequatur asperiores corrupti illum
-      hic? Obcaecati alias incidunt minus molestias consequatur dolore velit
-      fugit! Iusto ea recusandae, incidunt a voluptatem obcaecati sed et ipsum
-      deleniti, itaque dolores! Id ipsa unde consequatur doloribus quae odit!
-      Facilis dignissimos sequi sint aliquam, labore ipsa est consequuntur
-      debitis? Fuga molestiae asperiores maiores facere magni necessitatibus
-      assumenda explicabo itaque fugit, mollitia obcaecati illo ex natus
-      architecto maxime qui excepturi quidem delectus soluta quaerat ipsam odio
-      esse. In, odio aspernatur. Vel, non? Aspernatur, dignissimos a?
-      Laudantium, numquam necessitatibus quaerat vero beatae tenetur soluta,
-      iusto aliquid non officia asperiores quo praesentium animi? Molestiae
-      veniam delectus nihil dicta itaque ratione ea impedit.
+      {{ bio }}
     </p>
   </div>
-
-  <div class="accounts">
-    <h1>Minhas Contas</h1>
-    <div class="accounts__container">
-      <div class="account">
-        <img
-          class="icon"
-          src="https://i.pinimg.com/736x/91/6f/b0/916fb08fef4920571e2662ca170ccf16.jpg"
-          [width]="128"
-          alt=""
-        />
-        <p>mykonos#amora</p>
-        <img
-          src="https://support-leagueoflegends.riotgames.com/hc/article_attachments/4415916978067"
-          [width]="200"
-          alt=""
-        />
-        <p>500&nbsp;PDL</p>
-      </div>
-      <div class="account">
-        <img
-          class="icon"
-          src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKBiENwvbLOBZ1o6nxicZd0HODTrEwYQGPbDleLR9jlXyQHA03f_VcLDN8uIwoFktpvlMRkng3ujX1c0jee5s7XT8ATdpRZ1YAgKYkqGqnvbh9GNML580b8r5RqIDw3sQ_TUel0Yz89-cj/s200/3505.jpg"
-          [width]="128"
-          alt=""
-        />
-        <p>nwrr#amora</p>
-        <img
-          src="https://support-leagueoflegends.riotgames.com/hc/article_attachments/4415916978067"
-          [width]="200"
-          alt=""
-        />
-        <p>500&nbsp;PDL</p>
-      </div>
-      <div class="account">
-        <img
-          class="icon"
-          src="https://ddragon.leagueoflegends.com/cdn/14.24.1/img/profileicon/1455.png"
-          [width]="128"
-          alt=""
-        />
-        <p>tvgirl#belle</p>
-        <img
-          src="https://support-leagueoflegends.riotgames.com/hc/article_attachments/4415916978067"
-          [width]="200"
-          alt=""
-        />
-        <p>500&nbsp;PDL</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="comments">
-    <h1>Comentários</h1>
-    <div class="add-comment">
-      <textarea
-        #comentar
-        name="comentar"
-        id="comentar"
-        type="text"
-        placeholder="Add a comment..."
-        [maxLength]="250"
-        rows="1"
-        (input)="autoResize($event)"
-      ></textarea>
-      <button class="comment_enviar">Enviar</button>
-      <div class="char-count">
-        <span>{{ 250 - comentar.textLength }} caracteres restantes</span>
-      </div>
-    </div>
-    <div class="comment">
-      <div class="identification">
-        <img
-          class="icon"
-          src="https://preview.redd.it/i-animated-the-best-janna-icon-v0-i870v2fdmhkc1.gif?width=594&auto=webp&s=82f7434959c39937d5305e8328a2760597ce7cc8"
-          [width]="50"
-          alt=""
-        />
-        <p><strong>Cavaloko</strong> - 3 dias atrás</p>
-      </div>
-      <p class="actions__message">Joga muito, mano!</p>
-      <span class="comment_report">Reportar ⚠︎</span>
-    </div>
-  </div>
 </div>
-
-<!-- Report -->
-<!-- Multiple account, checking with icon (idk) -->

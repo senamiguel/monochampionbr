@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-profile',
@@ -7,8 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './profile.component.css',
 })
 export class ProfileComponent {
-  autoResize($event: any): void {
-    $event.target.style = 'height: auto';
-    $event.target.style = 'height:' + $event.target.scrollHeight + 'px';
-  }
+  @Input() bio!: string;
+  @Input() nick!: string;
+  @Input() icon!: string;
+  @Input() campeao!: string;
+
 }
