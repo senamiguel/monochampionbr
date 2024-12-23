@@ -4,21 +4,24 @@ form {
   width: 50%;
   margin: 5% auto;
 }
+ 
 .space {
   display: flex;
   flex-direction: column;
   gap: 1em;
 }
+ 
 .form-item {
   display: flex;
   flex-direction: column;
   gap: 0.2em;
 }
-
+ 
 label {
   color: white;
   margin-bottom: 0.5em;
 }
+ 
 input {
   background: none;
   border: none;
@@ -26,13 +29,14 @@ input {
   font-size: 14px;
   background-color: #1d252c;
   border-radius: 15px;
-  padding: 10px 16px;
+  padding: 10px 0 10px 3%;
   width: 97%;
   resize: vertical;
   height: 20px;
   overflow: hidden;
   font-family: inherit;
 }
+ 
 select {
   background: none;
   border: none;
@@ -40,12 +44,12 @@ select {
   font-size: 14px;
   background-color: #1d252c;
   border-radius: 15px;
-  padding: 10px 30px;
+  padding: 10px 3%;
   width: 100%;
   resize: vertical;
   font-family: inherit;
 }
-
+ 
 .icons {
   margin-top: 15px;
   background-color: #1d252c;
@@ -55,6 +59,7 @@ select {
   padding: 20px 0;
   overflow-y: auto;
 }
+ 
 .item {
   display: grid;
   grid-template-columns: repeat(7, 12%);
@@ -64,53 +69,62 @@ select {
   align-items: center;
   overflow-y: auto;
 }
-
+ 
 @media (max-width: 1200px) {
   .item {
     grid-template-columns: repeat(4, 15%);
   }
 }
-
+ 
 @media (max-width: 768px) {
   .item {
     grid-template-columns: repeat(3, 24%);
   }
 }
-
+ 
 .item img {
   border-radius: 50%;
 }
-#about-me {
+ 
+#bioText {
   background: none;
   border: none;
   color: #c9d1d9;
   font-size: 14px;
   background-color: #1d252c;
   border-radius: 15px;
-  padding: 10px 16px;
+  line-height: 130%;
+  padding: 5px 0px 10px 3%;
   width: 97%;
   resize: vertical;
+  text-align: left;
   min-height: 100px;
   overflow: hidden;
   font-family: inherit;
 }
+ 
+#bioText::placeholder {
+  line-height: 105%;
+}
+ 
 .button {
   background-color: #c49c57;
   border: none;
   color: #ffffff;
-  padding: 10px 20px;
+  padding: 1%;
   margin-top: 1em;
   border-radius: 10px;
   cursor: pointer;
 }
-
+ 
 .image-icon {
   cursor: pointer;
 }
-
+ 
 .image-icon:hover {
   cursor: pointer;
 }
+ 
 .selected {
   outline: 2px solid #c49c57;
   box-shadow: 0 0 15px #c49c57;
