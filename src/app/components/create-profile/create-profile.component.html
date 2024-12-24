@@ -2,39 +2,70 @@
   <div *ngSwitchCase="1" class="space">
     <div class="form-item">
       <label for="username">Nome de Usuário:</label>
-      <input placeholder="Ex:.. Berg" id="username" [maxLength]="16" formControlName="nick" type="text"
-        autocomplete="off" (blur)="saveProfileDetails(username.value, 'username')" #username />
+      <input
+        placeholder="Ex:.. Berg"
+        id="username"
+        [maxLength]="16"
+        formControlName="nick"
+        type="text"
+        autocomplete="off"
+        (blur)="saveProfileDetails(username.value, 'username')"
+        #username
+      />
     </div>
     <div class="form-item">
       <label for="champions">Campeão:</label>
       <select formControlName="champions" (change)="onChampionSelect($event)">
         <option value="">{{ "Escolha seu campeão" }}</option>
-        <option *ngFor="let champion of availableChampionNames; let i = index" [value]="champion">
+        <option
+          *ngFor="let champion of availableChampionNames; let i = index"
+          [value]="champion"
+        >
           {{ champion }}
         </option>
       </select>
     </div>
     <div *ngIf="selectedChampionIndex != 0" class="icons">
       <div class="item">
-        <img (click)="toggleIconSelection(i)" id="icon{{ i }}" draggable="false" class="image-icon" *ngFor="
+        <img
+          (click)="toggleIconSelection(i)"
+          id="icon{{ i }}"
+          draggable="false"
+          class="image-icon"
+          *ngFor="
             let icon of championIconMap.get(selectedChampionName) || [];
             let i = index
-          " [src]="generateIconURLForChampion(selectedChampionName, i)" alt="Icon {{ i + 1 }}" width="100%" />
+          "
+          [src]="generateIconURLForChampion(selectedChampionName, i)"
+          alt="Icon {{ i + 1 }}"
+          width="100%"
+        />
       </div>
     </div>
     <div class="form-item">
       <label for="bioText">Sobre mim:</label>
       <div>
-        <textarea #bio name="bioText" id="bioText" type="text" placeholder='
+        <textarea
+          #bio
+          name="bioText"
+          id="bioText"
+          type="text"
+          placeholder='
       Oi! Eu sou "Arthur Lanches", moro no interior de
       São Paulo, tenho 24 anos e nasci no dia 13.11.2000.
       AH, e eu não tenho uma lanchonete e sim uma 
       WEBLANCHONETE.
       Lol status: jogando desde a season 2, s8 challenger - s9 
-      challenger' [maxLength]="600" rows="1" (input)="autoResizeTextarea($event)"
-          (blur)="saveProfileDetails(bio.value, 'bio')"></textarea>
+      challenger'
+          [maxLength]="600"
+          rows="1"
+          (input)="autoResizeTextarea($event)"
+          (blur)="saveProfileDetails(bio.value, 'bio')"
+        ></textarea>
         <div class="char-count">
-          <span style="color: white">{{ 600 - bio.textLength }} caracteres restantes</span>
+          <span style="color: white"
+            >{{ 600 - bio.textLength }} caracteres restantes</span
+          >
         </div>
       </div>
     </div>
@@ -44,25 +75,38 @@
     <div class="">
       <div class="form-item">
         <h1 style="color: white">Seu perfil ficará assim</h1>
-        <app-profile [bio]="bioText" [nick]="username" [icon]="selectedIconURL" [campeao]="selectedChampionName">
+        <app-profile
+          [bio]="bioText"
+          [nick]="username"
+          [icon]="selectedIconURL"
+          [campeao]="selectedChampionName"
+        >
           <app-comment class="comments"></app-comment>
         </app-profile>
       </div>
     </div>
     <div class="form-actions">
-      <div class="button btn-back" (click)="togglePage(1)"><span>Voltar</span></div>
-      <div class="button btn-next" (click)="togglePage(3)"><span>Próximo</span></div>
+      <div class="button btn-back" (click)="togglePage(1)">
+        <span>Voltar</span>
+      </div>
+      <div class="button btn-next" (click)="togglePage(3)">
+        <span>Próximo</span>
+      </div>
     </div>
   </div>
   <div *ngSwitchCase="3" class="login-riot">
     <h1>Só mais uma coisinha...</h1>
-    <p>Faça login com a sua conta riot para mostar a sua conta aos outros usuários</p>
+    <p>
+      Faça login com a sua conta riot para mostar a sua conta aos outros
+      usuários
+    </p>
     <p>Exemplo:</p>
     <app-accounts></app-accounts>
-    <button class="riot"> <span class="riot-text">Logar com o Riot ID</span></button>
+    <button class="riot">
+      <span class="riot-text">Logar com o Riot ID</span>
+    </button>
     <div class="form-actions">
       <div class="back-riot" (click)="togglePage(2)"><span>Voltar</span></div>
     </div>
   </div>
-
 </form>

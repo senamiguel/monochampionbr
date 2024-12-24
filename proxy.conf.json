@@ -1,0 +1,11 @@
+{
+    "/riot-api": {
+      "target": "https://americas.api.riotgames.com",
+      "secure": true,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/riot-api": ""
+      }
+    }
+  }
+  
