@@ -7,6 +7,6 @@ import { CreateProfileComponent } from './components/create-profile/create-profi
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'champions', component: ChampionsComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile/:nick', component: ProfileComponent },
   { path: 'create-profile', component: CreateProfileComponent },
 ];
