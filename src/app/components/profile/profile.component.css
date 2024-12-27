@@ -48,10 +48,23 @@
 
 .actions {
   display: flex;
+  color: rgb(147 173 200);
+  border-radius: 15px;
   grid-area: actions;
-  align-self: center;
+  padding: 6px;
+  margin-top: 10px;
+  align-self: flex-start;
+  align-items: center;
   justify-content: end;
-  gap: 0.5em;
+}
+.vote{
+  cursor: pointer;
+  transition: 0.3s;
+}
+.vote:hover{
+  background-color: #333333;
+  border-radius: 50%;
+  transition: 0.3s;
 }
 
 
@@ -76,19 +89,7 @@
   width: 80px;
   margin-bottom: 10px;
 }
-.actions-container {
-  padding: 15px;
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-}
 
-#actions__curtir {
-  background-color: #c49c57;
-}
-#actions__seguir {
-  background-color: #243647;
-}
 button {
   background-color: #333333;
   border: none;
