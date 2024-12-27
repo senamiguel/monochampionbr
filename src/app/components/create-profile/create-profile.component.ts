@@ -23,7 +23,7 @@ import { MonoApiService } from '../../services/monoapi.service';
 })
 export class CreateProfileComponent {
   profileForm: FormGroup;
-  currentPage: number = 3;
+  currentPage: number = 1;
   bioText: string = '';
   username: string = '';
   selectedIconURL: string = '';
