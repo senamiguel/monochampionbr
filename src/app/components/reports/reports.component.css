@@ -1,0 +1,67 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 5% auto;
+  color: white;
+}
+input {
+  background: none;
+  border: none;
+  color: #c9d1d9;
+  font-size: 14px;
+  background-color: #1d252c;
+  border-radius: 15px;
+  padding: 10px 0 10px 3%;
+  width: 97%;
+  resize: vertical;
+  height: 20px;
+  overflow: hidden;
+  font-family: inherit;
+}
+
+
+select {
+  background: none;
+  border: none;
+  color: #c9d1d9;
+  font-size: 14px;
+  background-color: #1d252c;
+  border-radius: 15px;
+  padding: 10px 3%;
+  width: 100%;
+  resize: vertical;
+  font-family: inherit;
+}
+textarea {
+    background: none;
+    border: none;
+    color: #c9d1d9;
+    font-size: 14px;
+    background-color: #1d252c;
+    border-radius: 15px;
+    line-height: 130%;
+    padding: 5px 1% 10px 2%;
+    width: 97%;
+    resize: vertical;
+    text-align: left;
+    min-height: 100px;
+    overflow: hidden;
+    font-family: inherit;
+  }
+  button {
+    background-color: #CF1050;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 0;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: .3s;
+  }
+  button:hover {
+    background-color: #FF112D;
+    transition: .3s;
+  }

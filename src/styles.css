@@ -35,3 +35,6 @@ app-root{
 ::-webkit-scrollbar-track {
     background-color: transparent;
 }
+input:is(:-webkit-autofill, :autofill) {
+  background-color: #1d252c;
+}
