@@ -1,0 +1,50 @@
+<form action="">
+  <h1>Reportar algo</h1>
+  <h2>O que deseja reportar?</h2>
+  <select formControlName="tipo" id="tipo" (change)="onTypeSelected($event)">
+    <option value="Selecione">Selecione alguma opção...</option>
+    <option value="Profile">Perfil</option>
+    <option value="Comment">Comentário</option>
+    <option value="Bug">Bug</option>
+    <option value="Other">Outro</option>
+  </select>
+  <div class="player" *ngIf="selectedOption == 'Profile'">
+    <h2>Qual perfil deseja reportar?</h2>
+    <input
+      formControlName="profile"
+      id="profile"
+      type="text"
+      placeholder="Nome do perfil"
+    />
+  </div>
+  <div class="comment" *ngIf="selectedOption == 'Comment'">
+    <h2>Qual comentário deseja reportar?</h2>
+    <input
+      formControlName="comment"
+      id="comment"
+      type="text"
+      placeholder="Quem fez o comentário?/Em que perfil?"
+    />
+  </div>
+  <div class="bug" *ngIf="selectedOption == 'Bug'">
+    <h2>Qual bug deseja reportar?</h2>
+    <input
+      formControlName="bug"
+      id="bug"
+      type="text"
+      placeholder="Qual bug?"
+    />
+  </div>
+  <div class="other" *ngIf="selectedOption == 'Other'">
+    <h2>Qual outro problema deseja reportar?</h2>
+    <input
+      formControlName="other"
+      id="other"
+      type="text"
+      placeholder="Qual o problema?"
+    />
+  </div>
+  <h2>Nos conte o que aconteceu.</h2>
+  <textarea formControlName="descricao" id="descricao" [rows]="10"></textarea>
+  <button>Enviar</button>
+</form>
