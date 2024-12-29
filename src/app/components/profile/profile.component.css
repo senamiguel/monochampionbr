@@ -12,7 +12,7 @@
   padding: 20px;
 }
 
-.app-comment{
+app-comment{
   grid-area: comments;
 }
 

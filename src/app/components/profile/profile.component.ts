@@ -2,10 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MonoApiService } from '../../services/monoapi.service';
 import { CommonModule } from '@angular/common';
+import { CommentComponent } from "./comment/comment.component";
 
 @Component({
   selector: 'app-profile',
-  imports: [CommonModule],
+  imports: [CommonModule, CommentComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css',
 })
@@ -15,6 +16,7 @@ export class ProfileComponent implements OnInit {
   @Input() nick!: string;
   @Input() icon!: string;
   @Input() campeao!: string;
+  id:number = 0;
   elo: string = 'Mestre';
   pdl: number = 1;
   karma: number = 0;
@@ -27,13 +29,13 @@ export class ProfileComponent implements OnInit {
     'https://ddragon-webp.lolmath.net/latest/img/profileicon/';
   ngOnInit(): void {
     this.nick = this.router.snapshot.paramMap.get('nick') ?? this.nick;
-    this.mono.getAccountData(this.nick).subscribe((data) => {
-      console.log(data);
+    this.mono.getAccountDataByNick(this.nick).subscribe((data) => {
       if (data) {
         this.bio = data.bio;
         this.icon = this.iconBaseURL + data.iconID + '.webp';
         this.campeao = data.champion;
         this.elo = data.elo;
+        this.id = data.id;
         this.pdl = data.pdl;
         this.karma = data.karma;
       }

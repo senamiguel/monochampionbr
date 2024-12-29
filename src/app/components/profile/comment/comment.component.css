@@ -8,7 +8,6 @@ button {
 }
 
 .comments {
-  grid-area: comments;
   display: flex;
   gap: 1em;
   flex-direction: column;
