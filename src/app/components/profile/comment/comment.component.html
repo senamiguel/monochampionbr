@@ -16,17 +16,17 @@
     </div>
     <button class="comment_enviar">Enviar</button>
   </div>
-  <div class="comment">
+  <div *ngFor="let comment of comments" class="comment">
     <div class="identification">
       <img
         class="icon"
-        src="https://preview.redd.it/i-animated-the-best-janna-icon-v0-i870v2fdmhkc1.gif?width=594&auto=webp&s=82f7434959c39937d5305e8328a2760597ce7cc8"
+        [src]="comment.autorIcon"
         [width]="50"
         alt=""
       />
-      <p><strong>{{autorNick}}</strong> - 3 dias atrás</p>
+      <p><strong>{{comment.autorNick}}</strong></p>
     </div>
-    <p class="actions__message">Joga muito, mano!</p>
+    <p class="actions__message">{{comment.message}}</p>
     <span class="comment_report">Reportar ⚠︎</span>
   </div>
 </div>
