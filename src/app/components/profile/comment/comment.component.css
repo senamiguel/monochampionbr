@@ -6,7 +6,9 @@ button {
   border-radius: 10px;
   cursor: pointer;
 }
-
+a{
+  font-weight: 700;
+}
 .comments {
   display: flex;
   gap: 1em;
