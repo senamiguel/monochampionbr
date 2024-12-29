@@ -50,7 +50,6 @@ export class CommentComponent implements OnInit {
       },
     });
   }
-
   getAuthor(index: number, id: number): void {
     console.log(`Buscando dados do autor para autorID: ${id}`);
     this.mono.getAccountDataById(id).subscribe({
@@ -68,5 +67,28 @@ export class CommentComponent implements OnInit {
         );
       },
     });
+  }
+  postComment(comment: string): void {
+    const data = {
+      monochampId: this.monoid,
+      autorID: 6,
+      message: comment,
+      Date: new Date(),
+    };
+    this.mono.postCreateComment(data).subscribe({
+      next: (data) => {
+        console.log('Comentário postado:', data);
+        this.getComments();
+      },
+      error: (error) => {
+        console.error('Erro ao postar comentário:', error);
+      },
+    });
+    const commentInput = document.getElementById(
+      'comentar'
+    ) as HTMLInputElement;
+    if (commentInput) {
+      commentInput.value = '';
+    }
   }
 }

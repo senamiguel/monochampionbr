@@ -14,7 +14,7 @@
     <div class="char-count">
       <span>{{ 250 - comentar.textLength }} caracteres restantes</span>
     </div>
-    <button class="comment_enviar">Enviar</button>
+    <button class="comment_enviar" (click)="postComment(comentar.value)">Enviar</button>
   </div>
   <div *ngFor="let comment of comments" class="comment">
     <div class="identification">
